@@ -1,0 +1,6 @@
+# Generated files
+*.pyc
+
+#Eclipse
+.project
+.pydevproject
