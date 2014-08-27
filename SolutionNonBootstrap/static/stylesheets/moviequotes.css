@@ -1,0 +1,31 @@
+body {
+  background: url('/static/images/noise.jpg');
+  font: 14px Helvetica, serif;
+}
+
+input[name=quote] {
+  width: 300px;
+}
+
+input[name=movie] {
+  float: right;
+}
+
+input[type=submit] {
+  float: right;
+}
+
+ul {
+   list-style-type: none;
+}
+
+.movie {
+  font-style: italic;
+  margin-left: 12px;
+  margin-bottom: 10px;
+}
+
+td:first-child {
+  width: 50px;
+}
+
