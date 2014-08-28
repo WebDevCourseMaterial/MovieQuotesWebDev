@@ -1,5 +1,8 @@
 from datetime import timedelta, tzinfo
 
+# The first step in learning to do time zones the "right" way is to use:
+# https://code.google.com/p/gae-pytz/
+
 class UTC(tzinfo):
     """ UTC """
     def utcoffset(self, dt):
