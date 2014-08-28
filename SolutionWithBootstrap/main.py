@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import logging
 import os
 
 import date_utils
@@ -37,17 +38,31 @@ class MovieQuotesPage(webapp2.RequestHandler):
         template = jinja_env.get_template("templates/moviequotes.html")
         self.response.out.write(template.render({"moviequotes_query": moviequotes_query}))
 
-class AddQuoteAction(webapp2.RequestHandler):
+class InsertQuoteAction(webapp2.RequestHandler):
     def post(self):
-        new_quote = MovieQuote(parent=PARENT_KEY,
-                               quote=self.request.get("quote"),
-                               movie=self.request.get("movie"))
-        new_quote.put()
+        if self.request.get("entity_key"):
+            moviequote_key = ndb.Key(urlsafe=self.request.get('entity_key'))
+            moviequote = moviequote_key.get()
+            moviequote.quote = self.request.get("quote")
+            moviequote.movie = self.request.get("movie")
+            moviequote.put()
+        else:
+            new_quote = MovieQuote(parent=PARENT_KEY,
+                                   quote=self.request.get("quote"),
+                                   movie=self.request.get("movie"))
+            new_quote.put()
+        self.redirect(self.request.referer)
+
+class DeleteQuoteAction(webapp2.RequestHandler):
+    def post(self):
+        moviequote_key = ndb.Key(urlsafe=self.request.get('entity_key'))
+        moviequote_key.delete()
         self.redirect(self.request.referer)
 
 app = webapp2.WSGIApplication([
     ("/", MovieQuotesPage),
-    ("/addquote", AddQuoteAction)
+    ("/insertquote", InsertQuoteAction),
+    ("/deletequote", DeleteQuoteAction)
 ], debug=True)
 
 
