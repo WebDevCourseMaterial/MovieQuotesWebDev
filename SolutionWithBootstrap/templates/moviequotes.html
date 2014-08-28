@@ -37,7 +37,6 @@
     </div>
 
     <div class="container">
-
       <div class="table-wrapper">
         <table class="table table-striped">
          <thead>
@@ -52,7 +51,7 @@
               <tr>
                 <td>{{moviequote.movie}}</td>
                 <td>{{moviequote.quote}}</td>
-                <td>{{moviequote.last_touch_date_time}}</td>
+                <td>{{moviequote.last_touch_date_time|date_format }}</td>
               </tr>
             {% endfor %}
           </tbody>
