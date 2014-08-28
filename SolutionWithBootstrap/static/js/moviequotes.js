@@ -9,6 +9,7 @@ rh.mq.enableButtons = function() {
 
   $("#toggle-edit").click(function() {
     $(".edit-actions").toggleClass("hidden");
+    $(".collapse.navbar-collapse").collapse('hide');
   });
 
   $("#add-quote").click(function() {
@@ -17,6 +18,7 @@ rh.mq.enableButtons = function() {
     $("#add-quote-modal input[name=entity_key]").val("").prop("disabled", true);
     $("#add-quote-modal .modal-title").html("Add a MovieQuote");
     $("#add-quote-modal button[type=submit]").html("Add Quote");
+    $(".collapse.navbar-collapse").collapse('hide');
   });
 
   $(".edit-movie-quote").click(function() {
