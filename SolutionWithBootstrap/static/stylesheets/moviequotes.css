@@ -2,6 +2,7 @@ body {
   padding-top: 70px;
 }
 
+/* Only use table-wrapper on screen >600px. */
 @media (min-width: 600px) {
   .table-wrapper {
     padding: 10px 30px 5px;
@@ -11,6 +12,7 @@ body {
   }
 }
 
+/* Minor <500px adjustment when buttons need 2 lines. */
 @media (max-width: 500px) {
   .delete-movie-quote,
   .edit-movie-quote {
