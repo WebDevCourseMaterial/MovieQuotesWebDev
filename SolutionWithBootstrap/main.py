@@ -16,26 +16,17 @@
 #
 import os
 
+import date_utils
 from google.appengine.ext import ndb
 import jinja2
 from models import MovieQuote
 import webapp2
 
+
 jinja_env = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
   autoescape=True)
-
-def date_format(value):
-    if value.year == value.year:
-        if value.month == value.month and value.day == value.day:
-            format_str = "Today"
-        elif value.year == value.year:
-            format_str = "%B %d"
-    else:
-        format_str = "%B %d, %Y"
-    return value.strftime(format_str).replace(" 0", " ")
-
-jinja_env.filters["date_format"] = date_format
+jinja_env.filters["date_format"] = date_utils.date_format
 
 # Generic key used to group MovieQuotes into an entity group.
 PARENT_KEY = ndb.Key("Entity", 'moviequote_root')
