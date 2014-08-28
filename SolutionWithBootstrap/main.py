@@ -17,7 +17,6 @@
 import logging
 import os
 
-import date_utils
 from google.appengine.ext import ndb
 import jinja2
 from models import MovieQuote
@@ -27,7 +26,6 @@ import webapp2
 jinja_env = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
   autoescape=True)
-jinja_env.filters["date_format"] = date_utils.date_format
 
 # Generic key used to group MovieQuotes into an entity group.
 PARENT_KEY = ndb.Key("Entity", 'moviequote_root')
