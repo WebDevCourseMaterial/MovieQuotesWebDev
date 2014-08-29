@@ -16,8 +16,7 @@ body {
 @media (max-width: 500px) {
   .delete-movie-quote,
   .edit-movie-quote {
-    border-radius: 4px !important;
-    margin: 2px;
+    margin: 2px 0;
   }
 }
 

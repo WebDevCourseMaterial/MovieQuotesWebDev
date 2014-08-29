@@ -2,14 +2,31 @@
 var rh = rh || {};
 rh.mq = rh.mq || {};
 
+rh.mq.editing = false;
+
+rh.mq.hideNavbar = function() {
+  $navbar = $(".collapse.navbar-collapse");
+  if ($navbar.hasClass("in")) {
+    $navbar.collapse('hide');
+  }
+};
+
 rh.mq.enableButtons = function() {
   $('#add-quote-modal').on('shown.bs.modal', function() {
     $("input[name='quote']").focus();
   });
 
   $("#toggle-edit").click(function() {
-    $(".edit-actions").toggleClass("hidden");
-    $(".collapse.navbar-collapse").collapse('hide');
+    if (rh.mq.editing) {
+      rh.mq.editing = false;
+      $(".edit-actions").addClass("hidden");
+      $(this).html("Edit");
+    } else {
+      rh.mq.editing = true;
+      $(".edit-actions").removeClass("hidden");
+      $(this).html("Done");
+    }
+    rh.mq.hideNavbar();
   });
 
   $("#add-quote").click(function() {
@@ -18,7 +35,7 @@ rh.mq.enableButtons = function() {
     $("#add-quote-modal input[name=entity_key]").val("").prop("disabled", true);
     $("#add-quote-modal .modal-title").html("Add a MovieQuote");
     $("#add-quote-modal button[type=submit]").html("Add Quote");
-    $(".collapse.navbar-collapse").collapse('hide');
+    rh.mq.hideNavbar();
   });
 
   $(".edit-movie-quote").click(function() {

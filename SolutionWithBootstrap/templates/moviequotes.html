@@ -40,7 +40,7 @@
           <tr>
             <th>Quote</th>
             <th>Movie</th>
-            <th class="hidden edit-actions">Editing</th>
+            <th class="hidden edit-actions">Edits</th>
           </tr>
         </thead>
         <tbody>
@@ -49,18 +49,17 @@
               <td>{{moviequote.quote}}</td>
               <td>{{moviequote.movie}}</td>
               <td class="hidden edit-actions">
-                <div class="btn-group">
-                  <button data-toggle="modal" data-target="#add-quote-modal" type="button" class="edit-movie-quote btn btn-xs btn-success">
-                    Edit
-                    <div class="hidden entity-key">{{ moviequote.key.urlsafe() }}</div>
-                    <div class="hidden quote">{{moviequote.quote}}</div>
-                    <div class="hidden movie">{{moviequote.movie}}</div>
-                  </button>
-                  <button data-toggle="modal" data-target="#delete-quote-modal" type="button" class="delete-movie-quote btn btn-xs btn-danger">
-                    Delete
-                    <div class="hidden entity-key">{{ moviequote.key.urlsafe() }}</div>
-                  </button>
-                </div>
+                <button data-toggle="modal" data-target="#add-quote-modal" type="button" class="edit-movie-quote btn btn-xs btn-success">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                  <div class="hidden entity-key">{{ moviequote.key.urlsafe() }}</div>
+                  <div class="hidden quote">{{moviequote.quote}}</div>
+                  <div class="hidden movie">{{moviequote.movie}}</div>
+                </button>
+                <button data-toggle="modal" data-target="#delete-quote-modal" type="button" class="delete-movie-quote btn btn-xs btn-danger">
+                  <span class="glyphicon glyphicon-remove"></span>
+                  <div class="hidden entity-key">{{ moviequote.key.urlsafe() }}</div>
+                </button>
+
             </tr>
           {% endfor %}
         </tbody>
