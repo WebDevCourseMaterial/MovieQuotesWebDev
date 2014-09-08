@@ -4,6 +4,7 @@ rh.mq = rh.mq || {};
 
 rh.mq.editing = false;
 
+
 rh.mq.hideNavbar = function() {
   $navbar = $(".collapse.navbar-collapse");
   if ($navbar.hasClass("in")) {
@@ -11,11 +12,15 @@ rh.mq.hideNavbar = function() {
   }
 };
 
-rh.mq.enableButtons = function() {
+
+rh.wp.attachEventHandlers = function() {
   $('#insert-quote-modal').on('shown.bs.modal', function() {
     $("input[name='quote']").focus();
   });
+};
 
+
+rh.mq.enableButtons = function() {
   $("#toggle-edit").click(function() {
     if (rh.mq.editing) {
       rh.mq.editing = false;
@@ -59,4 +64,5 @@ rh.mq.enableButtons = function() {
 
 $(document).ready(function() {
   rh.mq.enableButtons();
+  rh.wp.attachEventHandlers();
 });
