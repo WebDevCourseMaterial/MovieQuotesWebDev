@@ -13,7 +13,7 @@ rh.mq.hideNavbar = function() {
 };
 
 
-rh.wp.attachEventHandlers = function() {
+rh.mq.attachEventHandlers = function() {
   $('#insert-quote-modal').on('shown.bs.modal', function() {
     $("input[name='quote']").focus();
   });
@@ -64,5 +64,5 @@ rh.mq.enableButtons = function() {
 
 $(document).ready(function() {
   rh.mq.enableButtons();
-  rh.wp.attachEventHandlers();
+  rh.mq.attachEventHandlers();
 });
