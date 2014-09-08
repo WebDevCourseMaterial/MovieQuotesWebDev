@@ -12,7 +12,7 @@ rh.mq.hideNavbar = function() {
 };
 
 rh.mq.enableButtons = function() {
-  $('#add-quote-modal').on('shown.bs.modal', function() {
+  $('#insert-quote-modal').on('shown.bs.modal', function() {
     $("input[name='quote']").focus();
   });
 
@@ -30,11 +30,11 @@ rh.mq.enableButtons = function() {
   });
 
   $("#add-quote").click(function() {
-    $("#add-quote-modal input[name=quote]").val("");
-    $("#add-quote-modal input[name=movie]").val("");
-    $("#add-quote-modal input[name=entity_key]").val("").prop("disabled", true);
-    $("#add-quote-modal .modal-title").html("Add a MovieQuote");
-    $("#add-quote-modal button[type=submit]").html("Add Quote");
+    $("#insert-quote-modal input[name=quote]").val("");
+    $("#insert-quote-modal input[name=movie]").val("");
+    $("#insert-quote-modal input[name=entity_key]").val("").prop("disabled", true);
+    $("#insert-quote-modal .modal-title").html("Add a MovieQuote");
+    $("#insert-quote-modal button[type=submit]").html("Add Quote");
     rh.mq.hideNavbar();
   });
 
@@ -42,11 +42,11 @@ rh.mq.enableButtons = function() {
     quote = $(this).find(".quote").html();
     movie = $(this).find(".movie").html();
     entityKey = $(this).find(".entity-key").html();
-    $("#add-quote-modal input[name=quote]").val(quote);
-    $("#add-quote-modal input[name=movie]").val(movie);
-    $("#add-quote-modal input[name=entity_key]").val(entityKey).prop("disabled", false);
-    $("#add-quote-modal .modal-title").html("Edit this MovieQuote");
-    $("#add-quote-modal button[type=submit]").html("Edit Quote");
+    $("#insert-quote-modal input[name=quote]").val(quote);
+    $("#insert-quote-modal input[name=movie]").val(movie);
+    $("#insert-quote-modal input[name=entity_key]").val(entityKey).prop("disabled", false);
+    $("#insert-quote-modal .modal-title").html("Edit this MovieQuote");
+    $("#insert-quote-modal button[type=submit]").html("Edit Quote");
   });
 
   $(".delete-movie-quote").click(function() {
